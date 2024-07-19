@@ -1001,7 +1001,8 @@ list<ArtinFactor> Returns(ArtinBraid B, ArtinFactor F)
   B1=Cycling(B1);
   while(B1!=B)
     {
-      C1.RightMultiply((*B1.FactorList.begin()).Flip(B1.LeftDelta));
+      if (!B1.FactorList.empty())
+	C1.RightMultiply((*B1.FactorList.begin()).Flip(B1.LeftDelta));
       B1=Cycling(B1);
       N++;
     }
@@ -1026,6 +1027,8 @@ list<ArtinFactor> Returns(ArtinBraid B, ArtinFactor F)
 	F1=ArtinFactor(n,1);
       else if (B2.CompareWithIdentity())
 	F1=ArtinFactor(n,0);
+      else if (B2.FactorList.empty())
+	F1=ArtinFactor(n,B2.LeftDelta);
       else
 	F1=*B2.FactorList.begin();
 
