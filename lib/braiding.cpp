@@ -2194,6 +2194,8 @@ void PrintUSS(list<list<ArtinBraid> > &  uss, list<sint16> word, sint16 n,
 	}
       f << endl << endl << endl;
     }
+
+  delete[] sizes;
 }
 
 
@@ -2772,7 +2774,7 @@ while (it==ret.end())
 return *it;
 }
 
-// María Cumplido Cabello
+// Marï¿½a Cumplido Cabello
 
 
 /////////////////////////////////////////////////////////////
